@@ -1,0 +1,171 @@
+/* IMPORTS - VARIABLES */
+@import './abstracts/colors';
+
+/* SITE */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	min-height: 100vh;
+	padding: 0.7rem 2.5rem 3rem;
+	background-color: $main-background;
+}
+
+a {
+	color: $text-white;
+}
+
+body,
+button,
+h1 {
+	font-family: 'League Spartan', sans-serif;
+	font-size: 3.2rem;
+}
+
+button {
+	text-transform: uppercase;
+}
+
+header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+h1 {
+	position: relative;
+	top: 1rem;
+	color: $text-white;
+}
+
+fieldset {
+	position: relative;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 7rem;
+	height: 100%;
+	width: 7rem;
+	color: $text-white;
+	border: none;
+
+	legend {
+		position: relative;
+		left: -6rem;
+		top: 4rem;
+	}
+}
+
+input {
+	height: 1.8rem;
+	aspect-ratio: 1/1;
+}
+
+.label-container,
+.input-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+	padding: 0rem 0.4rem;
+}
+
+.label-container {
+	margin-bottom: 0.3rem;
+}
+
+.input-container {
+	position: absolute;
+	top: 50%;
+	opacity: 0;
+}
+
+.theme-switcher {
+	height: 2.8rem;
+	width: 7rem;
+	padding: 0.5rem;
+	border-radius: 100vw;
+	background-color: $toggle-keypad-background;
+}
+
+.knob {
+	display: block;
+	height: 1.8rem;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	background-color: $toggle-key-background;
+}
+
+.screen,
+.controls {
+	padding: 2rem;
+	border-radius: 1rem;
+	background-color: $screen-background;
+}
+
+.screen {
+	margin: 3rem 0 2rem;
+
+	&__result {
+		color: $text-white;
+		text-align: right;
+	}
+}
+
+.controls {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	gap: 1.5rem;
+	padding: 2.5rem;
+}
+
+.button {
+	height: 6rem;
+	border-radius: 1rem;
+	border: none;
+}
+
+.button:nth-last-child(2) {
+	grid-area: 5 / 1 / 6 / 3;
+}
+
+.button:nth-last-child(1) {
+	grid-area: 5 / 3 / 6 / 5;
+}
+
+// .div1 { grid-area: 1 / 1 / 2 / 2; }
+// .div2 { grid-area: 1 / 2 / 2 / 3; }
+// .div3 { grid-area: 1 / 3 / 2 / 4; }
+// .div4 { grid-area: 1 / 4 / 2 / 5; }
+// .div5 { grid-area: 2 / 1 / 3 / 2; }
+// .div6 { grid-area: 2 / 2 / 3 / 3; }
+// .div7 { grid-area: 2 / 3 / 3 / 4; }
+// .div8 { grid-area: 2 / 4 / 3 / 5; }
+// .div9 { grid-area: 3 / 1 / 4 / 2; }
+// .div10 { grid-area: 3 / 2 / 4 / 3; }
+// .div11 { grid-area: 3 / 3 / 4 / 4; }
+// .div12 { grid-area: 3 / 4 / 4 / 5; }
+// .div13 { grid-area: 4 / 1 / 5 / 2; }
+// .div14 { grid-area: 4 / 2 / 5 / 3; }
+// .div15 { grid-area: 4 / 3 / 5 / 4; }
+// .div16 { grid-area: 4 / 4 / 5 / 5; }
+// .div17 { grid-area: 5 / 1 / 6 / 3; }
+// .div18 { grid-area: 5 / 3 / 6 / 5; }
+
+.footer {
+	font-size: 1.2rem;
+	position: relative;
+	top: 1rem;
+	color: $text-white;
+	text-align: center;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Frontend Mentor Calculator app</title>
+	<link rel="icon" type="image/png" href="./images/favicon-32x32.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+	<header>
+		<h1>calc</h1>
+		<fieldset>
+			<legend>theme</legend>
+			<div class="label-container">
+				<label for="theme-1">1</label>
+				<label for="theme-2">2</label>
+				<label for="theme-3">3</label>
+			</div>
+			<div class="input-container">
+				<input type="radio" name="theme" id="theme-1">
+				<input type="radio" name="theme" id="theme-2">
+				<input type="radio" name="theme" id="theme-3">
+			</div>
+			<div class="theme-switcher">
+				<span class="knob"></span>
+			</div>
+		</fieldset>
+	</header>
+
+	<main>
+		<div class="screen">
+			<p class="screen__result">123,456</p>
+		</div>
+		<div class="controls">
+			<button type="button" class="button">7</button>
+			<button type="button" class="button">8</button>
+			<button type="button" class="button">9</button>
+			<button type="button" class="button">del</button>
+			<button type="button" class="button">4</button>
+			<button type="button" class="button">5</button>
+			<button type="button" class="button">6</button>
+			<button type="button" class="button">+</button>
+			<button type="button" class="button">1</button>
+			<button type="button" class="button">2</button>
+			<button type="button" class="button">3</button>
+			<button type="button" class="button">-</button>
+			<button type="button" class="button">.</button>
+			<button type="button" class="button">0</button>
+			<button type="button" class="button">/</button>
+			<button type="button" class="button">x</button>
+			<button type="button" class="button">reset</button>
+			<button type="button" class="button">=</button>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<p class="footer__author">Challenge by <a href="https://www.frontendmentor.io" target="_blank"
+				rel="noopener">Frontend Mentor</a>.
+			Coded by <a href="https://github.com/Pawel-Gnat" target="_blank" rel="noopener">Paweł Gnat</a>.</p>
+	</footer>
+
+	<script type='module' src="./js/main.js"></script>
+</body>
+
+</html>
