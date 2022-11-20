@@ -16,11 +16,13 @@ html {
 body {
 	min-height: 100vh;
 	padding: 1rem 2.5rem 2rem;
-	background-color: $main-background;
+	background-color: var(--main-background);
+	transition: background 0.3s;
 }
 
 a {
-	color: $text-white;
+	color: var(--text-main);
+	transition: color 0.3s;
 }
 
 body,
@@ -28,6 +30,8 @@ button,
 h1 {
 	font-family: 'League Spartan', sans-serif;
 	font-size: 3.2rem;
+	color: var(--text-main);
+	transition: color 0.3s;
 }
 
 header {
@@ -40,7 +44,6 @@ header {
 h1 {
 	position: relative;
 	top: 1.5rem;
-	color: $text-white;
 }
 
 fieldset {
@@ -51,7 +54,8 @@ fieldset {
 	width: 7rem;
 	height: 100%;
 	width: 7rem;
-	color: $text-white;
+	color: var(--text-main);
+	transition: color 0.3s;
 	border: none;
 
 	legend {
@@ -93,19 +97,23 @@ input {
 }
 
 .theme-switcher {
+	display: flex;
 	height: 2.8rem;
 	width: 7rem;
 	padding: 0.5rem;
 	border-radius: 100vw;
-	background-color: $toggle-keypad-background;
+	background-color: var(--toggle-keypad-background);
+	transition: background 0.3s;
 }
 
 .knob {
+	position: relative;
 	display: block;
 	height: 1.8rem;
 	aspect-ratio: 1/1;
 	border-radius: 50%;
-	background-color: $toggle-key-background;
+	background-color: var(--toggle-key-background);
+	transition: translate 0.3s, background 0.3s;
 }
 
 .screen {
@@ -113,10 +121,12 @@ input {
 	padding: clamp(2rem, 5vw, 3rem);
 	margin: 3.5rem 0 2.5rem;
 	border-radius: 1rem;
-	background-color: $screen-background;
+	background-color: var(--screen-background);
+	transition: background 0.3s;
 
 	&__result {
-		color: $text-white;
+		color: var(--text-main);
+		transition: color 0.3s;
 		text-align: right;
 	}
 }
@@ -129,19 +139,20 @@ input {
 	grid-row-gap: clamp(17px, 3vw, 28px);
 	padding: clamp(2.5rem, 5vw, 3.3rem);
 	border-radius: 1rem;
-	background-color: $toggle-keypad-background;
+	background-color: var(--toggle-keypad-background);
+	transition: background 0.3s;
 }
 
 .button {
-	font-size: clamp(2rem, 7vw, 3rem);
+	font-size: clamp(2rem, 4vw, 3rem);
 	text-transform: uppercase;
 	line-height: 6.5rem;
 	height: 6rem;
 	border-radius: 0.5rem;
 	border: none;
-	color: $text-white;
 	cursor: pointer;
 	transition: filter 0.2s;
+	transition: color 0.3s, background 0.3s, box-shadow 0.3s;
 
 	&:hover {
 		filter: brightness(1.3);
@@ -149,33 +160,35 @@ input {
 
 	&--number {
 		font-size: clamp(3.2rem, 7vw, 4.2rem);
-		background-color: $key-background3;
-		box-shadow: 0px 5px 0px 0px $key-shadow3;
-		color: $text-blue;
+		background-color: var(--key-background3);
+		box-shadow: 0px 5px 0px 0px var(--key-shadow3);
+		color: var(--text-btn);
 
 		&:active {
 			translate: 0 2px;
-			box-shadow: 0px 3px 0px 0px $key-shadow3;
+			box-shadow: 0px 3px 0px 0px var(--key-shadow3);
 		}
 	}
 
 	&--options {
-		background-color: $key-background;
-		box-shadow: 0px 5px 0px 0px $key-shadow;
+		background-color: var(--key-background);
+		color: var(--text2);
+		box-shadow: 0px 5px 0px 0px var(--key-shadow);
 
 		&:active {
 			translate: 0 2px;
-			box-shadow: 0px 3px 0px 0px $key-shadow;
+			box-shadow: 0px 3px 0px 0px var(--key-shadow);
 		}
 	}
 
 	&--result {
-		background-color: $toggle-key-background;
-		box-shadow: 0px 5px 0px 0px $key-shadow2;
+		background-color: var(--toggle-key-background);
+		color: var(--text-result);
+		box-shadow: 0px 5px 0px 0px var(--key-shadow2);
 
 		&:active {
 			translate: 0 2px;
-			box-shadow: 0px 3px 0px 0px $key-shadow2;
+			box-shadow: 0px 3px 0px 0px var(--key-shadow2);
 		}
 	}
 }
@@ -196,7 +209,8 @@ input {
 	font-size: 1.2rem;
 	position: relative;
 	top: 1rem;
-	color: $text-white;
+	color: var(--text-main);
+	transition: color 0.3s;
 	text-align: center;
 }
 
@@ -205,3 +219,5 @@ input {
 		border-radius: 1rem;
 	}
 }
+
+// - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser

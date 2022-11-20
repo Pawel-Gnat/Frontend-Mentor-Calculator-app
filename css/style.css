@@ -1,42 +1,55 @@
 /* IMPORTS - VARIABLES */
-/* commented out
+:root {
+  --main-background: hsl(222, 26%, 31%);
+  --toggle-keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  --key-background: hsl(225, 21%, 49%);
+  --key-shadow: hsl(224, 28%, 35%);
+  --toggle-key-background: hsl(6, 63%, 50%);
+  --key-shadow2: hsl(6, 70%, 34%);
+  --key-background3: hsl(30, 25%, 89%);
+  --key-shadow3: hsl(28, 16%, 65%);
+  --text: hsl(221, 14%, 31%);
+  --text-btn: hsl(221, 14%, 31%);
+  --text-main: hsl(0, 0%, 100%);
+  --text2: hsl(0, 0%, 100%);
+  --text-result: hsl(0, 0%, 100%);
+}
 
-// THEME 2 //
+body.theme2 {
+  --main-background: hsl(0, 0%, 90%);
+  --toggle-keypad-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+  --key-background: hsl(185, 42%, 37%);
+  --key-shadow: hsl(185, 58%, 25%);
+  --toggle-key-background: hsl(25, 98%, 40%);
+  --key-shadow2: hsl(25, 99%, 27%);
+  --key-background3: hsl(45, 7%, 89%);
+  --key-shadow3: hsl(35, 11%, 61%);
+  --text: hsl(60, 10%, 19%);
+  --text-btn: hsl(60, 10%, 19%);
+  --text-main: hsl(60, 10%, 19%);
+  --text2: hsl(0, 0%, 100%);
+  --text-result: hsl(0, 0%, 100%);
+}
 
-// background//
-$main-background: hsl(0, 0%, 90%);
-$toggle-keypad-background: hsl(0, 5%, 81%);
-$screen-background: hsl(0, 0%, 93%);
-// keys //
-$key-background: hsl(185, 42%, 37%);
-$key-shadow: hsl(185, 58%, 25%);
-$toggle-key-background: hsl(25, 98%, 40%);
-$key-shadow2: hsl(25, 99%, 27%);
-$key-background3: hsl(45, 7%, 89%);
-$key-shadow3: hsl(35, 11%, 61%);
-// text //
-$text-yellow: hsl(60, 10%, 19%);
-$text-white: hsl(0, 0%, 100%);
+body.theme3 {
+  --main-background: hsl(268, 75%, 9%);
+  --toggle-keypad-background: hsl(268, 71%, 12%);
+  --screen-background: hsl(268, 71%, 12%);
+  --key-background: hsl(281, 89%, 26%);
+  --key-shadow: hsl(285, 91%, 52%);
+  --toggle-key-background: hsl(176, 100%, 44%);
+  --key-shadow2: hsl(177, 92%, 70%);
+  --key-background3: hsl(268, 47%, 21%);
+  --key-shadow3: hsl(290, 70%, 36%);
+  --text: hsl(52, 100%, 62%);
+  --text-btn: hsl(52, 100%, 62%);
+  --text-main: hsl(52, 100%, 62%);
+  --text2: hsl(0, 0%, 100%);
+  --text-result: hsl(198, 20%, 13%);
+}
 
-// THEME 3 //
-
-// background//
-$main-background: hsl(268, 75%, 9%);
-$toggle-keypad-background: hsl(268, 71%, 12%);
-$screen-background: hsl(268, 71%, 12%);
-// keys //
-$key-background: hsl(281, 89%, 26%);
-$key-shadow: hsl(285, 91%, 52%);
-$toggle-key-background: hsl(176, 100%, 44%);
-$key-shadow2: hsl(177, 92%, 70%);
-$key-background3: hsl(268, 47%, 21%);
-$key-shadow3: hsl(290, 70%, 36%);
-// text //
-$text-yellow: hsl(52, 100%, 62%);
-$text-blue: hsl(198, 20%, 13%);
-$text-white: hsl(0, 0%, 100%);
-
-*/
 /* SITE */
 * {
   -webkit-box-sizing: border-box;
@@ -53,11 +66,15 @@ html {
 body {
   min-height: 100vh;
   padding: 1rem 2.5rem 2rem;
-  background-color: hsl(222deg, 26%, 31%);
+  background-color: var(--main-background);
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
 }
 
 a {
-  color: hsl(0deg, 0%, 100%);
+  color: var(--text-main);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
 }
 
 body,
@@ -65,6 +82,9 @@ button,
 h1 {
   font-family: "League Spartan", sans-serif;
   font-size: 3.2rem;
+  color: var(--text-main);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
 }
 
 header {
@@ -86,7 +106,6 @@ header {
 h1 {
   position: relative;
   top: 1.5rem;
-  color: hsl(0deg, 0%, 100%);
 }
 
 fieldset {
@@ -97,7 +116,9 @@ fieldset {
   width: 7rem;
   height: 100%;
   width: 7rem;
-  color: hsl(0deg, 0%, 100%);
+  color: var(--text-main);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
   border: none;
 }
 fieldset legend {
@@ -144,19 +165,27 @@ input {
 }
 
 .theme-switcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 2.8rem;
   width: 7rem;
   padding: 0.5rem;
   border-radius: 100vw;
-  background-color: hsl(223deg, 31%, 20%);
+  background-color: var(--toggle-keypad-background);
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
 }
 
 .knob {
+  position: relative;
   display: block;
   height: 1.8rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background-color: hsl(6deg, 63%, 50%);
+  background-color: var(--toggle-key-background);
+  -webkit-transition: translate 0.3s, background 0.3s;
+  transition: translate 0.3s, background 0.3s;
 }
 
 .screen {
@@ -164,10 +193,14 @@ input {
   padding: clamp(2rem, 5vw, 3rem);
   margin: 3.5rem 0 2.5rem;
   border-radius: 1rem;
-  background-color: hsl(224deg, 36%, 15%);
+  background-color: var(--screen-background);
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
 }
 .screen__result {
-  color: hsl(0deg, 0%, 100%);
+  color: var(--text-main);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
   text-align: right;
 }
 
@@ -179,22 +212,27 @@ input {
   grid-row-gap: clamp(17px, 3vw, 28px);
   padding: clamp(2.5rem, 5vw, 3.3rem);
   border-radius: 1rem;
-  background-color: hsl(223deg, 31%, 20%);
+  background-color: var(--toggle-keypad-background);
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
 }
 
 .button {
-  font-size: clamp(2rem, 7vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   text-transform: uppercase;
   line-height: 6.5rem;
   height: 6rem;
   border-radius: 0.5rem;
   border: none;
-  color: hsl(0deg, 0%, 100%);
   cursor: pointer;
   -webkit-transition: -webkit-filter 0.2s;
   transition: -webkit-filter 0.2s;
   transition: filter 0.2s;
   transition: filter 0.2s, -webkit-filter 0.2s;
+  -webkit-transition: color 0.3s, background 0.3s, -webkit-box-shadow 0.3s;
+  transition: color 0.3s, background 0.3s, -webkit-box-shadow 0.3s;
+  transition: color 0.3s, background 0.3s, box-shadow 0.3s;
+  transition: color 0.3s, background 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
 .button:hover {
   -webkit-filter: brightness(1.3);
@@ -202,35 +240,37 @@ input {
 }
 .button--number {
   font-size: clamp(3.2rem, 7vw, 4.2rem);
-  background-color: hsl(30deg, 25%, 89%);
-  -webkit-box-shadow: 0px 5px 0px 0px hsl(28deg, 16%, 65%);
-          box-shadow: 0px 5px 0px 0px hsl(28deg, 16%, 65%);
-  color: hsl(221deg, 14%, 31%);
+  background-color: var(--key-background3);
+  -webkit-box-shadow: 0px 5px 0px 0px var(--key-shadow3);
+          box-shadow: 0px 5px 0px 0px var(--key-shadow3);
+  color: var(--text-btn);
 }
 .button--number:active {
   translate: 0 2px;
-  -webkit-box-shadow: 0px 3px 0px 0px hsl(28deg, 16%, 65%);
-          box-shadow: 0px 3px 0px 0px hsl(28deg, 16%, 65%);
+  -webkit-box-shadow: 0px 3px 0px 0px var(--key-shadow3);
+          box-shadow: 0px 3px 0px 0px var(--key-shadow3);
 }
 .button--options {
-  background-color: hsl(225deg, 21%, 49%);
-  -webkit-box-shadow: 0px 5px 0px 0px hsl(224deg, 28%, 35%);
-          box-shadow: 0px 5px 0px 0px hsl(224deg, 28%, 35%);
+  background-color: var(--key-background);
+  color: var(--text2);
+  -webkit-box-shadow: 0px 5px 0px 0px var(--key-shadow);
+          box-shadow: 0px 5px 0px 0px var(--key-shadow);
 }
 .button--options:active {
   translate: 0 2px;
-  -webkit-box-shadow: 0px 3px 0px 0px hsl(224deg, 28%, 35%);
-          box-shadow: 0px 3px 0px 0px hsl(224deg, 28%, 35%);
+  -webkit-box-shadow: 0px 3px 0px 0px var(--key-shadow);
+          box-shadow: 0px 3px 0px 0px var(--key-shadow);
 }
 .button--result {
-  background-color: hsl(6deg, 63%, 50%);
-  -webkit-box-shadow: 0px 5px 0px 0px hsl(6deg, 70%, 34%);
-          box-shadow: 0px 5px 0px 0px hsl(6deg, 70%, 34%);
+  background-color: var(--toggle-key-background);
+  color: var(--text-result);
+  -webkit-box-shadow: 0px 5px 0px 0px var(--key-shadow2);
+          box-shadow: 0px 5px 0px 0px var(--key-shadow2);
 }
 .button--result:active {
   translate: 0 2px;
-  -webkit-box-shadow: 0px 3px 0px 0px hsl(6deg, 70%, 34%);
-          box-shadow: 0px 3px 0px 0px hsl(6deg, 70%, 34%);
+  -webkit-box-shadow: 0px 3px 0px 0px var(--key-shadow2);
+          box-shadow: 0px 3px 0px 0px var(--key-shadow2);
 }
 
 .button:nth-last-child(3) {
@@ -249,7 +289,9 @@ input {
   font-size: 1.2rem;
   position: relative;
   top: 1rem;
-  color: hsl(0deg, 0%, 100%);
+  color: var(--text-main);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
   text-align: center;
 }
 
