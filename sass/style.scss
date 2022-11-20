@@ -15,7 +15,7 @@ html {
 
 body {
 	min-height: 100vh;
-	padding: 0.7rem 2.5rem 3rem;
+	padding: 1rem 2.5rem 2rem;
 	background-color: $main-background;
 }
 
@@ -30,10 +30,6 @@ h1 {
 	font-size: 3.2rem;
 }
 
-button {
-	text-transform: uppercase;
-}
-
 header {
 	display: flex;
 	flex-direction: row;
@@ -43,7 +39,7 @@ header {
 
 h1 {
 	position: relative;
-	top: 1rem;
+	top: 1.5rem;
 	color: $text-white;
 }
 
@@ -60,7 +56,7 @@ fieldset {
 
 	legend {
 		position: relative;
-		left: -6rem;
+		left: -6.5rem;
 		top: 4rem;
 	}
 }
@@ -68,6 +64,12 @@ fieldset {
 input {
 	height: 1.8rem;
 	aspect-ratio: 1/1;
+	cursor: pointer;
+}
+
+.wrapper {
+	max-width: 54rem;
+	margin: 0 auto;
 }
 
 .label-container,
@@ -77,6 +79,7 @@ input {
 	justify-content: space-around;
 	width: 100%;
 	padding: 0rem 0.4rem;
+	cursor: pointer;
 }
 
 .label-container {
@@ -105,15 +108,12 @@ input {
 	background-color: $toggle-key-background;
 }
 
-.screen,
-.controls {
-	padding: 2rem;
+.screen {
+	font-size: clamp(3.8rem, 10vw, 5.2rem);
+	padding: clamp(2rem, 5vw, 3rem);
+	margin: 3.5rem 0 2.5rem;
 	border-radius: 1rem;
 	background-color: $screen-background;
-}
-
-.screen {
-	margin: 3rem 0 2rem;
 
 	&__result {
 		color: $text-white;
@@ -125,14 +125,63 @@ input {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 1fr);
-	gap: 1.5rem;
-	padding: 2.5rem;
+	grid-column-gap: clamp(14px, 3vw, 25px);
+	grid-row-gap: clamp(17px, 3vw, 28px);
+	padding: clamp(2.5rem, 5vw, 3.3rem);
+	border-radius: 1rem;
+	background-color: $toggle-keypad-background;
 }
 
 .button {
+	font-size: clamp(2rem, 7vw, 3rem);
+	text-transform: uppercase;
+	line-height: 6.5rem;
 	height: 6rem;
-	border-radius: 1rem;
+	border-radius: 0.5rem;
 	border: none;
+	color: $text-white;
+	cursor: pointer;
+	transition: filter 0.2s;
+
+	&:hover {
+		filter: brightness(1.3);
+	}
+
+	&--number {
+		font-size: clamp(3.2rem, 7vw, 4.2rem);
+		background-color: $key-background3;
+		box-shadow: 0px 5px 0px 0px $key-shadow3;
+		color: $text-blue;
+
+		&:active {
+			translate: 0 2px;
+			box-shadow: 0px 3px 0px 0px $key-shadow3;
+		}
+	}
+
+	&--options {
+		background-color: $key-background;
+		box-shadow: 0px 5px 0px 0px $key-shadow;
+
+		&:active {
+			translate: 0 2px;
+			box-shadow: 0px 3px 0px 0px $key-shadow;
+		}
+	}
+
+	&--result {
+		background-color: $toggle-key-background;
+		box-shadow: 0px 5px 0px 0px $key-shadow2;
+
+		&:active {
+			translate: 0 2px;
+			box-shadow: 0px 3px 0px 0px $key-shadow2;
+		}
+	}
+}
+
+.button:nth-last-child(3) {
+	text-transform: none;
 }
 
 .button:nth-last-child(2) {
@@ -143,29 +192,16 @@ input {
 	grid-area: 5 / 3 / 6 / 5;
 }
 
-// .div1 { grid-area: 1 / 1 / 2 / 2; }
-// .div2 { grid-area: 1 / 2 / 2 / 3; }
-// .div3 { grid-area: 1 / 3 / 2 / 4; }
-// .div4 { grid-area: 1 / 4 / 2 / 5; }
-// .div5 { grid-area: 2 / 1 / 3 / 2; }
-// .div6 { grid-area: 2 / 2 / 3 / 3; }
-// .div7 { grid-area: 2 / 3 / 3 / 4; }
-// .div8 { grid-area: 2 / 4 / 3 / 5; }
-// .div9 { grid-area: 3 / 1 / 4 / 2; }
-// .div10 { grid-area: 3 / 2 / 4 / 3; }
-// .div11 { grid-area: 3 / 3 / 4 / 4; }
-// .div12 { grid-area: 3 / 4 / 4 / 5; }
-// .div13 { grid-area: 4 / 1 / 5 / 2; }
-// .div14 { grid-area: 4 / 2 / 5 / 3; }
-// .div15 { grid-area: 4 / 3 / 5 / 4; }
-// .div16 { grid-area: 4 / 4 / 5 / 5; }
-// .div17 { grid-area: 5 / 1 / 6 / 3; }
-// .div18 { grid-area: 5 / 3 / 6 / 5; }
-
 .footer {
 	font-size: 1.2rem;
 	position: relative;
 	top: 1rem;
 	color: $text-white;
 	text-align: center;
+}
+
+@media (min-width: 576px) {
+	.button {
+		border-radius: 1rem;
+	}
 }

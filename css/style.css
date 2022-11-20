@@ -52,7 +52,7 @@ html {
 
 body {
   min-height: 100vh;
-  padding: 0.7rem 2.5rem 3rem;
+  padding: 1rem 2.5rem 2rem;
   background-color: hsl(222deg, 26%, 31%);
 }
 
@@ -65,10 +65,6 @@ button,
 h1 {
   font-family: "League Spartan", sans-serif;
   font-size: 3.2rem;
-}
-
-button {
-  text-transform: uppercase;
 }
 
 header {
@@ -89,7 +85,7 @@ header {
 
 h1 {
   position: relative;
-  top: 1rem;
+  top: 1.5rem;
   color: hsl(0deg, 0%, 100%);
 }
 
@@ -106,13 +102,19 @@ fieldset {
 }
 fieldset legend {
   position: relative;
-  left: -6rem;
+  left: -6.5rem;
   top: 4rem;
 }
 
 input {
   height: 1.8rem;
   aspect-ratio: 1/1;
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: 54rem;
+  margin: 0 auto;
 }
 
 .label-container,
@@ -128,6 +130,7 @@ input {
       justify-content: space-around;
   width: 100%;
   padding: 0rem 0.4rem;
+  cursor: pointer;
 }
 
 .label-container {
@@ -156,15 +159,12 @@ input {
   background-color: hsl(6deg, 63%, 50%);
 }
 
-.screen,
-.controls {
-  padding: 2rem;
+.screen {
+  font-size: clamp(3.8rem, 10vw, 5.2rem);
+  padding: clamp(2rem, 5vw, 3rem);
+  margin: 3.5rem 0 2.5rem;
   border-radius: 1rem;
   background-color: hsl(224deg, 36%, 15%);
-}
-
-.screen {
-  margin: 3rem 0 2rem;
 }
 .screen__result {
   color: hsl(0deg, 0%, 100%);
@@ -175,14 +175,66 @@ input {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 1.5rem;
-  padding: 2.5rem;
+  grid-column-gap: clamp(14px, 3vw, 25px);
+  grid-row-gap: clamp(17px, 3vw, 28px);
+  padding: clamp(2.5rem, 5vw, 3.3rem);
+  border-radius: 1rem;
+  background-color: hsl(223deg, 31%, 20%);
 }
 
 .button {
+  font-size: clamp(2rem, 7vw, 3rem);
+  text-transform: uppercase;
+  line-height: 6.5rem;
   height: 6rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: none;
+  color: hsl(0deg, 0%, 100%);
+  cursor: pointer;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+}
+.button:hover {
+  -webkit-filter: brightness(1.3);
+          filter: brightness(1.3);
+}
+.button--number {
+  font-size: clamp(3.2rem, 7vw, 4.2rem);
+  background-color: hsl(30deg, 25%, 89%);
+  -webkit-box-shadow: 0px 5px 0px 0px hsl(28deg, 16%, 65%);
+          box-shadow: 0px 5px 0px 0px hsl(28deg, 16%, 65%);
+  color: hsl(221deg, 14%, 31%);
+}
+.button--number:active {
+  translate: 0 2px;
+  -webkit-box-shadow: 0px 3px 0px 0px hsl(28deg, 16%, 65%);
+          box-shadow: 0px 3px 0px 0px hsl(28deg, 16%, 65%);
+}
+.button--options {
+  background-color: hsl(225deg, 21%, 49%);
+  -webkit-box-shadow: 0px 5px 0px 0px hsl(224deg, 28%, 35%);
+          box-shadow: 0px 5px 0px 0px hsl(224deg, 28%, 35%);
+}
+.button--options:active {
+  translate: 0 2px;
+  -webkit-box-shadow: 0px 3px 0px 0px hsl(224deg, 28%, 35%);
+          box-shadow: 0px 3px 0px 0px hsl(224deg, 28%, 35%);
+}
+.button--result {
+  background-color: hsl(6deg, 63%, 50%);
+  -webkit-box-shadow: 0px 5px 0px 0px hsl(6deg, 70%, 34%);
+          box-shadow: 0px 5px 0px 0px hsl(6deg, 70%, 34%);
+}
+.button--result:active {
+  translate: 0 2px;
+  -webkit-box-shadow: 0px 3px 0px 0px hsl(6deg, 70%, 34%);
+          box-shadow: 0px 3px 0px 0px hsl(6deg, 70%, 34%);
+}
+
+.button:nth-last-child(3) {
+  text-transform: none;
 }
 
 .button:nth-last-child(2) {
@@ -199,4 +251,10 @@ input {
   top: 1rem;
   color: hsl(0deg, 0%, 100%);
   text-align: center;
+}
+
+@media (min-width: 576px) {
+  .button {
+    border-radius: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */
