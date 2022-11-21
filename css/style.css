@@ -135,10 +135,6 @@ input {
   opacity: 0;
 }
 
-input:focus {
-  opacity: 1;
-}
-
 .wrapper {
   max-width: 54rem;
   margin: 0 auto;
