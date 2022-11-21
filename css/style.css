@@ -132,6 +132,11 @@ input {
   aspect-ratio: 1/1;
   cursor: pointer;
   z-index: 1;
+  opacity: 0;
+}
+
+input:focus {
+  opacity: 1;
 }
 
 .wrapper {
@@ -162,7 +167,6 @@ input {
 .input-container {
   position: absolute;
   top: 50%;
-  opacity: 0;
 }
 
 .theme-switcher {
