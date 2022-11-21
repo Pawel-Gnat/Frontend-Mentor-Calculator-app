@@ -131,6 +131,7 @@ input {
   height: 1.8rem;
   aspect-ratio: 1/1;
   cursor: pointer;
+  z-index: 1;
 }
 
 .wrapper {

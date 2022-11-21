@@ -69,6 +69,7 @@ input {
 	height: 1.8rem;
 	aspect-ratio: 1/1;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .wrapper {
@@ -220,4 +221,8 @@ input {
 	}
 }
 
-// - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
+// @media (prefers-color-scheme: dark) {
+// 	body {
+// 		background-color: hsl(268, 75%, 9%);
+// 	}
+// }
