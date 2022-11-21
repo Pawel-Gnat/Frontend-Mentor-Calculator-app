@@ -1,4 +1,4 @@
-import * as theme from './components/_theme.js'
+import * as theme from './components/theme.js'
 
 const resultScreen = document.querySelector('.screen__result')
 const calcButtons = document.querySelectorAll('.button--number')
