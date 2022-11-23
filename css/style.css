@@ -239,14 +239,14 @@ input {
   -webkit-filter: brightness(1.3);
           filter: brightness(1.3);
 }
-.button--number {
+.button--number, .button--operator, .button--dot {
   font-size: clamp(3.2rem, 7vw, 4.2rem);
   background-color: var(--key-background3);
   -webkit-box-shadow: 0px 5px 0px 0px var(--key-shadow3);
           box-shadow: 0px 5px 0px 0px var(--key-shadow3);
   color: var(--text-btn);
 }
-.button--number:active {
+.button--number:active, .button--operator:active, .button--dot:active {
   translate: 0 2px;
   -webkit-box-shadow: 0px 3px 0px 0px var(--key-shadow3);
           box-shadow: 0px 3px 0px 0px var(--key-shadow3);
