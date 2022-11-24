@@ -22,10 +22,15 @@ function insertDigitToCalc(number) {
 	} else {
 		calculator.displayValue = displayValue === 0 ? number : displayValue + number
 	}
-	console.log(calculator)
 }
 
 function insertDecimalValue(dot) {
+	if (calculator.awaitSecondOperand === true) {
+		calculator.displayValue = '0.'
+		calculator.awaitSecondOperand = false
+		return
+	}
+
 	if (!calculator.displayValue.includes(dot)) {
 		calculator.displayValue += dot
 	}
@@ -34,6 +39,11 @@ function insertDecimalValue(dot) {
 function handleOperator(calcOperator) {
 	let { displayValue, firstOperand, operator } = calculator
 	let inputValue = parseFloat(displayValue)
+
+	if (operator && calculator.awaitSecondOperand) {
+		calculator.operator = calcOperator
+		return
+	}
 
 	if (firstOperand === null) {
 		calculator.firstOperand = inputValue
@@ -46,7 +56,6 @@ function handleOperator(calcOperator) {
 
 	calculator.awaitSecondOperand = true
 	calculator.operator = calcOperator
-	console.log(calculator)
 }
 
 function calculate(firstOperand, secondOperand, operator) {
@@ -58,7 +67,7 @@ function calculate(firstOperand, secondOperand, operator) {
 		return firstOperand - secondOperand
 	}
 
-	if (operator === '*') {
+	if (operator === 'x') {
 		return firstOperand * secondOperand
 	}
 
@@ -67,6 +76,13 @@ function calculate(firstOperand, secondOperand, operator) {
 	}
 
 	return secondOperand
+}
+
+function resetCalculator() {
+	calculator.displayValue = 0
+	calculator.firstOperand = null
+	calculator.awaitSecondOperand = false
+	calculator.operator = null
 }
 
 calcButtons.addEventListener('click', e => {
@@ -85,7 +101,8 @@ calcButtons.addEventListener('click', e => {
 	}
 
 	if (e.target.dataset.name === 'reset') {
-		console.log('reset', e.target.textContent)
+		resetCalculator()
+		updateCalculatorScreen()
 	}
 
 	if (e.target.classList.contains('button--dot')) {
