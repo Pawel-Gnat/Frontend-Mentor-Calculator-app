@@ -203,6 +203,8 @@ input {
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
   text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .controls {

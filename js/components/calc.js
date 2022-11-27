@@ -1,7 +1,7 @@
 const calcButtons = document.querySelector('.controls')
 
 const calculator = {
-	displayValue: 0,
+	displayValue: '0',
 	firstOperand: null,
 	awaitSecondOperand: false,
 	operator: null,
@@ -20,7 +20,7 @@ function insertDigitToCalc(number) {
 		calculator.displayValue = number
 		calculator.awaitSecondOperand = false
 	} else {
-		calculator.displayValue = displayValue === 0 ? number : displayValue + number
+		calculator.displayValue = displayValue === '0' ? number : displayValue + number
 	}
 }
 
@@ -50,12 +50,22 @@ function handleOperator(calcOperator) {
 	} else if (operator) {
 		let result = calculate(firstOperand, inputValue, operator)
 
-		calculator.displayValue = result
+		calculator.displayValue = parseFloat(result.toFixed(3))
 		calculator.firstOperand = result
 	}
 
 	calculator.awaitSecondOperand = true
 	calculator.operator = calcOperator
+}
+
+function deleteDigit() {
+	const { displayValue } = calculator
+
+	if (calculator.displayValue.length > 1) {
+		calculator.displayValue = displayValue.slice(0, -1)
+	} else if (calculator.displayValue.length === 1) {
+		calculator.displayValue = '0'
+	}
 }
 
 function calculate(firstOperand, secondOperand, operator) {
@@ -79,34 +89,41 @@ function calculate(firstOperand, secondOperand, operator) {
 }
 
 function resetCalculator() {
-	calculator.displayValue = 0
+	calculator.displayValue = '0'
 	calculator.firstOperand = null
 	calculator.awaitSecondOperand = false
 	calculator.operator = null
 }
 
 calcButtons.addEventListener('click', e => {
-	if (e.target.classList.contains('button--number')) {
-		insertDigitToCalc(e.target.textContent)
-		updateCalculatorScreen()
+	const value = e.target.textContent
+
+	if (!e.target.matches('button')) {
+		return
 	}
 
-	if (e.target.classList.contains('button--operator') || e.target.classList.contains('button--result')) {
-		handleOperator(e.target.textContent)
-		updateCalculatorScreen()
+	switch (value) {
+		case '+':
+		case '-':
+		case 'x':
+		case '/':
+		case '=':
+			handleOperator(value)
+			break
+		case '.':
+			insertDecimalValue(value)
+			break
+		case 'reset':
+			resetCalculator()
+			break
+		case 'del':
+			deleteDigit()
+			break
+		default:
+			if (Number.isInteger(parseFloat(value))) {
+				insertDigitToCalc(value)
+			}
 	}
 
-	if (e.target.dataset.name === 'del') {
-		console.log('del', e.target.textContent)
-	}
-
-	if (e.target.dataset.name === 'reset') {
-		resetCalculator()
-		updateCalculatorScreen()
-	}
-
-	if (e.target.classList.contains('button--dot')) {
-		insertDecimalValue(e.target.textContent)
-		updateCalculatorScreen()
-	}
+	updateCalculatorScreen()
 })

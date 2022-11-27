@@ -129,6 +129,8 @@ input {
 		color: var(--text-main);
 		transition: color 0.3s;
 		text-align: right;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 }
 
